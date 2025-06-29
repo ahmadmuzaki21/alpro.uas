@@ -1,0 +1,105 @@
+<head>
+  <title>Program Gaji Pegawai</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    table {
+      margin: auto;
+      border-collapse: collapse;
+      width: 50%;
+    }
+    td {
+      padding: 8px;
+    }
+    input {
+      width: 100%;
+      padding: 5px;
+    }
+    button {
+      padding: 8px 15px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Program Gaji Pegawai</h2>
+  <table border="1">
+    <tr>
+      <td>Nama Pegawai</td>
+      <td><input type="text" id="nama" /></td>
+    </tr>
+    <tr>
+      <td>Jam Kerja Perhari</td>
+      <td><input type="number" id="jamKerja" /></td>
+    </tr>
+    <tr>
+      <td>Upah Per Jam</td>
+      <td><input type="number" id="upah" /></td>
+    </tr>
+    <tr>
+      <td>Jumlah Anak</td>
+      <td><input type="number" id="anak" /></td>
+    </tr>
+  </table>
+
+  <button onclick="hitungGaji()">Proses</button>
+  <button onclick="resetForm()">Reset</button>
+
+  <h3>Hasil Perhitungan</h3>
+  <table border="1">
+    <tr>
+      <td>Gaji Per Bulan</td>
+      <td><span id="gajiBulan"></span></td>
+    </tr>
+    <tr>
+      <td>Tunjangan Anak</td>
+      <td><span id="tunjangan"></span></td>
+    </tr>
+    <tr>
+      <td>Gaji Total Perbulan</td>
+      <td><span id="totalGaji"></span></td>
+    </tr>
+    <tr>
+      <td>PPH 10%</td>
+      <td><span id="pph"></span></td>
+    </tr>
+    <tr>
+      <td>Gaji Bersih Diterima</td>
+      <td><span id="gajiBersih"></span></td>
+    </tr>
+  </table>
+
+  <script>
+    function hitungGaji() {
+      let jamKerja = parseFloat(document.getElementById("jamKerja").value) || 0;
+      let upah = parseFloat(document.getElementById("upah").value) || 0;
+      let anak = parseInt(document.getElementById("anak").value) || 0;
+
+      let gajiBulan = jamKerja * upah * 5 * 4;
+      let tunjangan = anak * 0.1 * gajiBulan;
+      let totalGaji = gajiBulan + tunjangan;
+      let pph = totalGaji * 0.1;
+      let gajiBersih = totalGaji - pph;
+
+      document.getElementById("gajiBulan").innerText = gajiBulan.toFixed(2);
+      document.getElementById("tunjangan").innerText = tunjangan.toFixed(2);
+      document.getElementById("totalGaji").innerText = totalGaji.toFixed(2);
+      document.getElementById("pph").innerText = pph.toFixed(2);
+      document.getElementById("gajiBersih").innerText = gajiBersih.toFixed(2);
+    }
+
+    function resetForm() {
+      document.getElementById("nama").value = "";
+      document.getElementById("jamKerja").value = "";
+      document.getElementById("upah").value = "";
+      document.getElementById("anak").value = "";
+      document.getElementById("gajiBulan").innerText = "";
+      document.getElementById("tunjangan").innerText = "";
+      document.getElementById("totalGaji").innerText = "";
+      document.getElementById("pph").innerText = "";
+      document.getElementById("gajiBersih").innerText = "";
+    }
+  </script>
+</body>

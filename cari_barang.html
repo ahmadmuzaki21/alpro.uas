@@ -15,12 +15,12 @@
         <div class="col-md-6">
           <div class="card shadow-lg">
             <div class="card-header bg-primary text-white text-center">
-              <h4>Pencarian Data Barang</h4>
+              <h4 class="mb-0">Pencarian Data Barang</h4>
             </div>
             <div class="card-body">
               <form action="cari_barang.php" method="post">
                 <div class="mb-3">
-                  <label for="nama" class="form-label">Nama</label>
+                  <label for="nama" class="form-label">Nama Barang</label>
                   <input
                     type="text"
                     class="form-control"
@@ -30,9 +30,21 @@
                     required
                   />
                 </div>
-                <div class="d-flex justify-content-between">
-                  <button type="submit" class="btn btn-success">Cari</button>
-                  <button type="reset" class="btn btn-secondary">Reset</button>
+
+                <div
+                  class="d-flex justify-content-between align-items-center mt-4"
+                >
+                  <div>
+                    <button type="submit" class="btn btn-success me-2">
+                      Cari
+                    </button>
+                    <button type="reset" class="btn btn-secondary">
+                      Reset
+                    </button>
+                  </div>
+                  <a href="ifram.html" class="btn btn-outline-primary"
+                    >Kembali</a
+                  >
                 </div>
               </form>
             </div>

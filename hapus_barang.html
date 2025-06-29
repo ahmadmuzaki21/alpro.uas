@@ -10,7 +10,7 @@
     />
     <style>
       body {
-        background-image: url("paper.gif"); /* Jika ingin efek background kertas */
+        background-image: url("paper.gif");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
@@ -29,7 +29,7 @@
           <form action="proses_hapus_barang.php" method="post">
             <div class="mb-3">
               <label for="pilihan" class="form-label">Pilih Berdasarkan:</label>
-              <select name="pilihan" id="pilihan" class="form-select">
+              <select name="pilihan" id="pilihan" class="form-select" required>
                 <option value="kode_barang">KODE BARANG</option>
                 <option value="nama_barang">NAMA BARANG</option>
               </select>
@@ -43,16 +43,24 @@
                 name="cari_data"
                 id="cari_data"
                 class="form-control"
-                placeholder="Masukkan kode atau Nama"
+                placeholder="Masukkan Kode atau Nama"
+                required
               />
             </div>
-            <div class="d-flex justify-content-between">
-              <button type="submit" class="btn btn-danger w-50 me-2">
-                Cari
-              </button>
-              <button type="reset" class="btn btn-secondary w-50 ms-2">
-                Reset
-              </button>
+            <div class="d-flex justify-content-between align-items-center">
+              <!-- Tombol cari dan reset di kiri -->
+              <div>
+                <button type="submit" class="btn btn-danger btn-sm">
+                  Cari
+                </button>
+                <button type="reset" class="btn btn-secondary btn-sm">
+                  Reset
+                </button>
+              </div>
+              <!-- Tombol kembali di kanan -->
+              <a href="ifram.html" class="btn btn-outline-primary btn-sm"
+                >Kembali</a
+              >
             </div>
           </form>
         </div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bilangan Ganjil dari 1 Sampai 100</title>
+  </head>
+  <body>
+    <h2>Bilangan Ganjil dari 1 Sampai 100</h2>
+    <script>
+      for (i = 1; i <= 100; i += 2) {
+        document.write(i + " | ");
+      }
+    </script>
+  </body>
+  <hr />
+  <head>
+    <meta charset="UTF-8" />
+    <title>Bilangan Genap dari 1 Sampai 100</title>
+  </head>
+  <body>
+    <h2>Bilangan Genap dari 1 Sampai 100</h2>
+    <script>
+      for (i = 2; i <= 100; i += 2) {
+        document.write(i + " | ");
+      }
+    </script>
+    <h2>Buat Perulangan Mundur dari bilangan terbesar ke kecil:</h2>
+    <p id="output"></p>
+
+    <script>
+      let text = "";
+      for (let i = 10; i > 1; i--) {
+        text += `Anak Ayam Turun ${i} mati 1 tinggal ${i - 1} <br>`;
+      }
+      text += "Anak Ayam Turun 1 mati 1 tinggal INDUKNYA";
+      document.getElementById("output").innerHTML = text;
+    </script>
+  </body>
+</html>

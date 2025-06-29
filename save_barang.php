@@ -87,6 +87,9 @@
           mysqli_close($conn);
         }
         ?>
+            <div class="text-end">
+                <a href="ifram.html" class="btn btn-primary mt-3">Kembali</a>
+            </div>
       </div>
     </div>
   </div>

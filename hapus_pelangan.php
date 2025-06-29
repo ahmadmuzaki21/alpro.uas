@@ -1,3 +1,28 @@
+<?php
+require("koneksi.php");
+
+$id_pelanggan = $_POST['id_pelanggan'] ?? '';
+
+// Ambil nama file foto terlebih dahulu sebelum menghapus
+$sql_foto = "SELECT foto FROM pelangan WHERE id_pelanggan = '$id_pelanggan'";
+$result_foto = mysqli_query($conn, $sql_foto);
+$data_foto = mysqli_fetch_assoc($result_foto);
+$nama_foto = $data_foto['foto'] ?? '';
+
+// Hapus file foto dari folder jika ada
+if (!empty($nama_foto)) {
+    $path_foto = "uploads/$nama_foto"; // pastikan path-nya sesuai
+    if (file_exists($path_foto)) {
+        unlink($path_foto);
+    }
+}
+
+// Hapus data dari tabel pelangan
+$sql = "DELETE FROM pelangan WHERE id_pelanggan = '$id_pelanggan'";
+$hasil = mysqli_query($conn, $sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -21,15 +46,8 @@
         </div>
         <div class="card-body bg-light text-center">
             <?php
-            require("koneksi.php");
-
-            $id_pelanggan = $_POST['id_pelanggan'];
-
-            $sql = "DELETE FROM pelangan WHERE id_pelanggan = '$id_pelanggan'";
-            $hasil = mysqli_query($conn, $sql);
-
             if ($hasil) {
-                echo "<div class='alert alert-success rounded-4'><h4 class='mb-0'>✅ Data dengan ID <b>$id_pelanggan</b> berhasil dihapus!</h4></div>";
+                echo "<div class='alert alert-success rounded-4'><h4 class='mb-0'>✅ Data dengan ID <b>$id_pelanggan</b> dan fotonya berhasil dihapus!</h4></div>";
             } else {
                 echo "<div class='alert alert-danger rounded-4'><h4 class='mb-0'>❌ Gagal menghapus data!</h4><br><code>" . mysqli_error($conn) . "</code></div>";
             }
@@ -41,4 +59,4 @@
     </div>
 </div>
 </body>
-</html>
+<

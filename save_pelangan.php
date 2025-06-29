@@ -66,7 +66,7 @@
       
       </div>
     </div>
-    <a href="ifram.html" class="btn btn-primary mt-3">Kembali ke Beranda</a>
+    <a href="ifram.html" class="btn btn-primary mt-3 ">Kembali ke Beranda</a>
   </div>
 </body>
 </html>
